@@ -1,0 +1,21 @@
+{
+  "name": "hn_sidebar",
+  "version": "0.0.1",
+  "description": "Sidebar Component",
+  "browserify": {
+    "transform": [
+      "coffeeify",
+      [
+        "jadeify",
+        {
+          "basedir": "node_modules/"
+        }
+      ]
+    ],
+    "extension": [
+      "coffee"
+    ]
+  },
+  "author": "aeksco@gmail.com",
+  "license": "MIT"
+}

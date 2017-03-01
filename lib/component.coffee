@@ -1,0 +1,33 @@
+SidebarView = require './view'
+
+# # # # #
+
+# SidebarComponent class definition
+# The SidebarComponent manages the state and accessibility
+# of the app's sidebar. The sidebar is used as the primary
+# method of navigation inside the app
+class SidebarComponent extends Marionette.Service
+
+  radioEvents:
+    'sidebar reset':  'showView'
+    'sidebar toggle': 'toggleSidebar'
+    'sidebar hide':   'hideSidebar'
+
+  initialize: (options={}) ->
+    @menuItems = options.menuItems
+
+  showView: ->
+    @view = new SidebarView({ menuItems: @menuItems })
+    @options.container.show(@view)
+
+  hideSidebar: ->
+    return unless @view
+    $('body').removeClass('sidebar-active')
+
+  toggleSidebar: ->
+    return unless @view
+    $('body').toggleClass('sidebar-active')
+
+# # # # #
+
+module.exports = SidebarComponent
